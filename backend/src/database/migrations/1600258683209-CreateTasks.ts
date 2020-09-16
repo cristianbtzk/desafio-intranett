@@ -34,6 +34,11 @@ export default class CreateTasks1600258683209 implements MigrationInterface {
             isNullable: false,
           },
           {
+            name: 'status',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
             name: 'cancelled_at',
             type: 'timestamp with time zone',
             isNullable: true,
@@ -41,7 +46,7 @@ export default class CreateTasks1600258683209 implements MigrationInterface {
           {
             name: 'cancellation_reason',
             type: 'varchar',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'user_id',

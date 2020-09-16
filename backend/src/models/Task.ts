@@ -8,13 +8,16 @@ import {
 } from 'typeorm';
 import User from './User';
 
-@Entity('users')
+@Entity('tasks')
 class Task {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
   name: string;
+
+  @Column()
+  status: string;
 
   @Column('timestamp with time zone')
   start: Date;
