@@ -9,7 +9,6 @@ interface Request {
   userName: string;
   email: string;
   password: string;
-  permission: string;
 }
 
 class CreateAccountService {
@@ -18,7 +17,6 @@ class CreateAccountService {
     accountName,
     email,
     password,
-    permission,
   }: Request): Promise<{ account: Account; user: User }> {
     const accountRepository = getRepository(Account);
 
@@ -44,7 +42,7 @@ class CreateAccountService {
       name: userName,
       email,
       password: hashedPassword,
-      permission,
+      permission: 'Dono',
       account_id: account.id,
     });
 
