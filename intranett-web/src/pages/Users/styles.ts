@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
 `;
 
-export const TasksContainer = styled.div`
+export const UsersContainer = styled.div`
   padding: 10px 15px;
   width: 100%;
   > p {
@@ -21,7 +21,6 @@ export const TasksContainer = styled.div`
     border-collapse: collapse;
     color: #000;
     border: 1px solid #c0c3c4;
-
     thead tr td {
       background: #74797d;
       color: #fff;
@@ -35,19 +34,15 @@ export const TasksContainer = styled.div`
       background: #e3e6e8;
     }
 
-    tr td:nth-child(5) {
-      display: flex;
-      flex: 1;
-      align-items: center;
-      justify-content: space-evenly;
-    }
-
     td {
       height: 50px;
       text-align: center;
-      font-size: 24px;
+      font-size: 20px;
+      text-align: start;
+      padding: 0px 15px;
     }
   }
+
   button {
     width: 200px;
     height: 60px;

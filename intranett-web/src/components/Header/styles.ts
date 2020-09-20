@@ -5,6 +5,9 @@ export const HeaderContainer = styled.div`
   height: 70px;
   background: #1a3340;
   border-bottom: 1px outset #182b36;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
   a {
     font-size: 40px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
