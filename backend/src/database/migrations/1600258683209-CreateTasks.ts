@@ -31,7 +31,7 @@ export default class CreateTasks1600258683209 implements MigrationInterface {
           {
             name: 'end',
             type: 'timestamp with time zone',
-            isNullable: false,
+            isNullable: true,
           },
           {
             name: 'status',

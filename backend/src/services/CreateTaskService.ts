@@ -6,7 +6,6 @@ import AppError from '../errors/AppError';
 interface Request {
   name: string;
   start: Date;
-  end: Date;
   responsible_id: string;
 }
 
@@ -14,7 +13,6 @@ class CreateTaskSerivce {
   public async execute({
     name,
     start,
-    end,
     responsible_id,
   }: Request): Promise<Task> {
     const taskRepository = getRepository(Task);
@@ -33,7 +31,6 @@ class CreateTaskSerivce {
     const task = await taskRepository.create({
       name,
       start,
-      end,
       user_id: responsible_id,
       status: 'Em andamento',
     });

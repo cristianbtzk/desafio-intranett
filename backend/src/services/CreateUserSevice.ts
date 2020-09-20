@@ -8,18 +8,26 @@ interface Request {
   email: string;
   password: string;
   permission: string;
-  account_id: string;
+  id: string;
 }
 
 class CreateUserService {
   public async execute({
+    id,
     name,
     email,
     password,
     permission,
-    account_id,
   }: Request): Promise<User> {
     const userRepository = getRepository(User);
+
+    const manager = await userRepository.findOne({
+      where: {
+        id,
+      },
+    });
+
+    const account_id = manager?.account_id;
 
     const checkEmailExists = await userRepository.findOne({
       where: { email },
