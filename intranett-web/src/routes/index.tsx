@@ -5,6 +5,7 @@ import SignUp from '../pages/SignUp';
 import Tasks from '../pages/Tasks';
 import Users from '../pages/Users';
 import Teams from '../pages/Teams';
+import TeamTasks from '../pages/TeamsTasks';
 
 const Routes: React.FC = () => (
   <Switch>
@@ -13,6 +14,7 @@ const Routes: React.FC = () => (
     <Route path="/tasks" component={Tasks} exact />
     <Route path="/users" component={Users} exact />
     <Route path="/teams" component={Teams} exact />
+    <Route path="/teamtasks/:user_id" component={TeamTasks} exact />
   </Switch>
 );
 

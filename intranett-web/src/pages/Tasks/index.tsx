@@ -59,7 +59,7 @@ const Tasks: React.FC = () => {
           },
         },
       );
-      setToggleCancelTaskModal(false);
+      setToggleCreateTaskModal(false);
       setTasks([...tasks, response.data]);
       alert('Tarefa Cadastrada.');
     } catch (err) {
@@ -112,7 +112,7 @@ const Tasks: React.FC = () => {
       setToggleFinishTaskModal(false);
       alert('Tarefa Finalizada.');
     } catch (err) {
-      alert(err.response.data);
+      alert(err.response.data.message);
     }
   }
 

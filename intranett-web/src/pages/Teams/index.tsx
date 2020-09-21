@@ -1,4 +1,5 @@
 import React, { useState, useEffect, FormEvent } from 'react';
+import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import Menu from '../../components/Menu';
 
@@ -168,6 +169,7 @@ const Teams: React.FC = () => {
               <tr>
                 <td>Nome</td>
                 <td>Permissão</td>
+                <td>Ações</td>
               </tr>
             </thead>
             <tbody>
@@ -175,6 +177,12 @@ const Teams: React.FC = () => {
                 <tr key={user.id}>
                   <td>{user.name}</td>
                   <td>{user.permission}</td>
+                  <td>
+                    {localStorage.getItem('@intranett:permission') ===
+                      'Gestor' && (
+                      <Link to={`teamtasks/${user.id}`}>Ver tarefas</Link>
+                    )}
+                  </td>
                 </tr>
               ))}
             </tbody>
