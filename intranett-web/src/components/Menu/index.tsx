@@ -21,7 +21,7 @@ const Menu: React.FC = () => {
         </Link>
       ) : null}
 
-      <Link to="/">
+      <Link to="/teams">
         <RiTeamLine />
         Equipes
       </Link>

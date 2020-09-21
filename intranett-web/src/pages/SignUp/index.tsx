@@ -14,13 +14,13 @@ const SignUp: React.FC = () => {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     try {
-      const response = await api.post('/accounts', {
+      await api.post('/accounts', {
         accountName,
         userName,
         email,
         password,
       });
-
+      alert('Cadastrado com sucesso');
       history.push('/');
     } catch (err) {
       alert(err.response.data.message);
@@ -66,7 +66,7 @@ const SignUp: React.FC = () => {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          <button type="submit">Login</button>
+          <button type="submit">Cadastrar</button>
         </form>
 
         <Link to="/">

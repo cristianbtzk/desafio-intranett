@@ -15,10 +15,10 @@ const Users: React.FC = () => {
   const [toggleModal, setToggleModal] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [permission, setPermission] = useState('');
+  const [permission, setPermission] = useState('Colaborador');
   const [name, setName] = useState('');
 
-  async function handleCreateUser(e: FormEvent) {
+  async function handleCreateUser(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     try {
       const id = localStorage.getItem('@intranett:id');
@@ -37,7 +37,9 @@ const Users: React.FC = () => {
           },
         },
       );
-      console.log(response);
+      alert('Usuário cadastrado');
+      setUsers([...users, response.data]);
+      setToggleModal(false);
     } catch (err) {
       alert(err.response.data.message);
     }
@@ -85,17 +87,22 @@ const Users: React.FC = () => {
               onChange={e => setPassword(e.target.value)}
             />
             <label htmlFor="permission">Permissão</label>
-            <input
+            <select
+              onChange={e => {
+                setPermission(e.target.value);
+              }}
               id="permission"
-              placeholder="Permissão"
-              value={permission}
-              onChange={e => setPermission(e.target.value)}
-            />
-            <button type="submit">Login</button>
+            >
+              <option value="Colaborador">Colaborador</option>
+              <option value="Gestor">Gestor</option>
+            </select>
+            <div>
+              <button type="button" onClick={() => setToggleModal(false)}>
+                Cancelar
+              </button>
+              <button type="submit">Criar</button>
+            </div>
           </form>
-          <button type="button" onClick={() => setToggleModal(false)}>
-            Cancelar
-          </button>
         </Modal>
       )}
 
@@ -120,9 +127,11 @@ const Users: React.FC = () => {
               ))}
             </tbody>
           </table>
-          <button onClick={() => setToggleModal(!toggleModal)} type="button">
-            Adicionar Usuário
-          </button>
+          {localStorage.getItem('@intranett:permission') === 'Gestor' && (
+            <button onClick={() => setToggleModal(!toggleModal)} type="button">
+              Adicionar Usuário
+            </button>
+          )}
         </UsersContainer>
       </Container>
     </>

@@ -4,6 +4,7 @@ import Login from '../pages/Login';
 import SignUp from '../pages/SignUp';
 import Tasks from '../pages/Tasks';
 import Users from '../pages/Users';
+import Teams from '../pages/Teams';
 
 const Routes: React.FC = () => (
   <Switch>
@@ -11,6 +12,7 @@ const Routes: React.FC = () => (
     <Route path="/signup" component={SignUp} exact />
     <Route path="/tasks" component={Tasks} exact />
     <Route path="/users" component={Users} exact />
+    <Route path="/teams" component={Teams} exact />
   </Switch>
 );
 

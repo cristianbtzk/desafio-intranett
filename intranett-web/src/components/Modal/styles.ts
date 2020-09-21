@@ -18,6 +18,13 @@ export const ModalContainer = styled.div<ContainerProps>`
     switch (props.page) {
       case 'form': {
         return css`
+          > p {
+            margin-top: 20px;
+            font-size: 18px;
+            span {
+              font-weight: bold;
+            }
+          }
           form {
             > label {
               margin-top: 30px;
@@ -44,20 +51,43 @@ export const ModalContainer = styled.div<ContainerProps>`
                 color: #c9cdd4;
               }
             }
+            div {
+              display: flex;
+              justify-content: flex-end;
 
-            button {
-              width: 100%;
-              height: 60px;
-              background: #418cb5;
-              border: 0;
-              color: #fff;
-              font-size: 18px;
-              margin-top: 28px;
-              transition: background 0.3s;
-
-              &:hover {
-                background: #2f7296;
+              button {
+                height: 50px;
+                min-width: 100px;
+                box-shadow: 0px 0px 10px 1px rgba(173, 173, 173, 1);
+                background: #fff;
+                border: 0;
+                color: #000;
+                font-size: 18px;
+                margin-top: 28px;
+                margin-right: 20px;
               }
+
+              button + button {
+                height: 50px;
+                background: #418cb5;
+                min-width: 100px;
+                border: 0;
+                color: #fff;
+                font-size: 18px;
+                margin-top: 28px;
+                transition: background 0.3s;
+
+                &:hover {
+                  background: #2f7296;
+                }
+              }
+            }
+
+            select {
+              display: block;
+              margin-top: 15px;
+              padding: 5px;
+              font-size: 18px;
             }
           }
         `;
