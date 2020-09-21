@@ -1,4 +1,5 @@
 import { getRepository } from 'typeorm';
+import { isBefore } from 'date-fns';
 import Task from '../models/Task';
 import AppError from '../errors/AppError';
 
@@ -19,6 +20,12 @@ class FinishTaskService {
 
     if (!task) {
       throw new AppError('Tarefa não encontrada');
+    }
+    const endDate = new Date(end);
+    if (isBefore(endDate, task.start)) {
+      throw new AppError(
+        'A tarefa não pode ser concluída antes de ter começado',
+      );
     }
 
     task.status = 'Concluída';
