@@ -4,6 +4,8 @@ import accountsRouter from './accounts.routes';
 import tasksRouter from './tasks.routes';
 import sessionsRouter from './sessions.routes';
 import verifyAuthenticated from '../middlewares/verifyAuthenticated';
+import teamsRouter from './teams.routes';
+import teamUsersRouter from './teamUsers.routes';
 
 const routes = Router();
 
@@ -13,4 +15,6 @@ routes.use('/sessions', sessionsRouter);
 routes.use(verifyAuthenticated);
 routes.use('/users', usersRouter);
 routes.use('/tasks', tasksRouter);
+routes.use('/teams', teamsRouter);
+routes.use('/teamsusers', teamUsersRouter);
 export default routes;

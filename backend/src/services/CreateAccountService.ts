@@ -42,7 +42,7 @@ class CreateAccountService {
       name: userName,
       email,
       password: hashedPassword,
-      permission: 'Dono',
+      permission: 'Gestor',
       account_id: account.id,
     });
 
